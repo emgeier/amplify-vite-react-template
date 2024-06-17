@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { useEffect, useState } from "react";
 
 
@@ -14,10 +14,14 @@ const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-  const [file, setFile] = React.useState();
+  const [file, setFile] = useState(null);  
 
   const handleChange = (event: any) => {
+    console.log(event);
     setFile(event.target.files[0]);
+    console.log(file);
+    if(file){
+    console.log(file.name);}
   };
 
   useEffect(() => {
@@ -69,7 +73,7 @@ function App() {
         Upload
       </button>
     </div>
-      <button onClick={signOut}>Sign out</button>
+       <button onClick={signOut}>Sign out</button>
     </main>
         
       )}

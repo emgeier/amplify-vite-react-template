@@ -1,10 +1,13 @@
-//import React from 'react';
+
 import { useEffect, useState } from "react";
 
 
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-import { uploadData } from 'aws-amplify/storage';
+import { uploadData, getUrl } from 'aws-amplify/storage';
+
+import { DefaultStorageImageExample } from "./components/Download";
+import { DownloadLinkButton } from "./components/DownloadLink";
 
 //authentication
 import { Authenticator } from '@aws-amplify/ui-react';
@@ -72,8 +75,10 @@ function App() {
       >
         Upload
       </button>
+      <DefaultStorageImageExample />
     </div>
        <button onClick={signOut}>Sign out</button>
+       <DownloadLinkButton />
     </main>
         
       )}
